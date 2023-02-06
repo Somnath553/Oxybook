@@ -2,7 +2,7 @@ import React,{useContext} from 'react'
 import BookContext from '../context/content/BookContext'
 import logo from "./elements/logo.png"
 import Usermenu from './Usermenu'
-import {Link,useNavigate} from "react-router-dom";
+import {Link} from "react-router-dom";
 function Nav() {
   const  context=useContext(BookContext);
   const {shows}=context;

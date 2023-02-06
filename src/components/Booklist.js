@@ -8,7 +8,7 @@ function Booklist(props) {
   const {setviewbooks,viewbooks}=context;
   
     const {book}=props;
-    const{image,title,author,price,tag,description}=book;
+    const{image,title,author,price,tag}=book;
     
     const bookl= ()=>{
       setviewbooks(book);

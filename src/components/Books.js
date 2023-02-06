@@ -1,4 +1,4 @@
-import React,{useState,useContext,useEffect} from 'react'
+import React,{useState,useContext,useEffect,useCallback} from 'react'
 import BookContext from '../context/content/BookContext'
 // import Badge from './Badge';
 import Booklist from './Booklist';
@@ -6,19 +6,21 @@ import Booklists from './Booklists';
 
 function Books() {
     const  context=useContext(BookContext);
-  const {books,getall,getallbytag,setbooks}=context;
+  const {books,getall,getallbytag}=context;
   const [no,setno] = useState(4);
   const [nbook,setnbook] = useState(books);
-  const update=()=>{
+  const [genre, setGenre] = useState('Romance')
+  const update=useCallback(() => {
     if(books.length >4)
     {
       setnbook(books.filter((v,i,books)=>{return i <no}))
     }
-  }
+    console.log(genre)
+  },[books, genre, no])
   useEffect(() => {
     update();
-   },[books])
-  const [genre, setGenre] = useState('Romance')
+   },[books, update])
+  
   const load=async ()=>{
     setno(no+2);
     setnbook(books.filter((v,i,books)=>{return i <no+2}));

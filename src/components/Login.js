@@ -25,7 +25,7 @@ function Login() {
       setshows(false);
       await getall();
       await getuser();
-      let j = await bookforsell();
+      await bookforsell();
       navigate('/');
 
     }
